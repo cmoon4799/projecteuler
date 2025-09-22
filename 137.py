@@ -1,11 +1,5 @@
-from algos import is_square
+from algos import is_square, fibonacci
 
-res = 0
-i = 1
-while True:
-    if is_square(5 * i**2 + 2 * i + 1):
-        res += 1
-        print(res, i)
-    if res == 15:
-        break
-    i += 1
+
+for k in range(0, 32, 2):
+    print(k//2, fibonacci(2*k + 1), ((-1)**k * fibonacci(2*k + 1, 2, 1) - 1)/5)
