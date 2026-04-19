@@ -28,4 +28,6 @@ def solve(limit):
 res = 0
 for h, b in solve(13)[1:]:
     res += int(math.sqrt(h**2 + b**2))
+    print(math.sqrt(h**2 + b**2))
+    print(math.ceil(math.log10(math.sqrt(h**2 + b**2))))
 print(res)

@@ -12,3 +12,7 @@ By recursive relation, A_F(x) = x/(1 - x - x^2). If we let n = A_F(x), we can se
 
 # 138
 Trivial with Pell's equation. Important to note that multiplying the fundamental solution by a unit in Z[sqrt(5)] will generate infinite solutions.
+
+---
+
+$\sum_{i = 1}^N \frac{1}{i} = H_N$ grows at the rate of $\log(N)$
