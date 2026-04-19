@@ -15,4 +15,7 @@ Trivial with Pell's equation. Important to note that multiplying the fundamental
 
 ---
 
+# Harmonic Series
 $\sum_{i = 1}^N \frac{1}{i} = H_N$ grows at the rate of $\log(N)$
+
+Given $N$ numbers, we can determine the largest $gcd$ of any two pair of numbers in $M\log(M)$, where $M$ is the maximum over the numbers. For each $d = 1, \ldots, M$, we can sieve for numbers divisible by $d$ in $O(\lfloor\frac{M}{d}\rfloor)$ by counting the frequency of $d * k$ for $k = 1, \ldots, \lfloor\frac{M}{d}\rfloor$.
