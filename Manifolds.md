@@ -102,3 +102,61 @@ that is smooth and equals 0 when $t = 0$. Overall,
 $$\text{vanishing order} \geq \text{order of denominator} \implies \text{removable singularity}$$
 
 Conceptually, while ordinary limit checking proves continuity, Taylor's theorem with remainder is stronger because it provides a new smooth formula across the domain.
+
+# Tangent Vectors in $\mathbb{R}^n$ as Derivations
+A secant plane to a surface in $\mathbb{R}^3$ is determined by three points on the surface. As the three points approach a point $p$, if the secant planes approach a limiting position, then the limiting plane is known as the tangent plane. The three points should not become collinear. A cone at its tip is an example of a point without a limiting plane. Tangent vectors are those that lie in the tangent plane.
+
+Our goal is to find a characterization of tangent vectors that generalizes to manifolds.
+
+The tangent space $T_p(\mathbb{R}^n)$ at $p \in \mathbb{R}^n$ is the vector space of all tangent vectors based at the point $p$. $T_p(\mathbb{R}^n)$ can naturally be identified with $\mathbb{R}^n$. For example, the vector $v = (-1, 2)$, rooted at $p$ pointing 1 unit left and two units up, can be thought of as $(-1, 2) \in \mathbb{R}^2$.
+
+If $f$ is smooth in a neighborhood at $p$ and $v$ is a tangent vector at $p$, the directional derivative is defined as
+
+$$D_vf = \lim_{t \rightarrow 0} \frac{f(c(t)) - f(p)}{t} = \frac{d}{dt} \bigg|_{t = 0} f(c(t))$$
+
+where $c(t) = (p^1 + tv^1, \ldots, p^n + tv^n)$ is a parameterization of a line through $p$ with direction $v$. By the Chain Rule,
+
+$$D_vf = \sum_{i = 1}^n \frac{dc^i}{dt}(0)\frac{\partial f}{\partial x^i}(p) = \sum_{i = 1}^n v^i \frac{\partial f}{\partial x^i}(p)$$
+
+We write $D_v = \sum v^i \frac{\partial}{\partial x^i} |_p$ as the map that sends a function $f$ to the number $D_vf$.
+
+Consider the set of all pairs $(f, U)$ where $U$ is a neighborhood of $p$ and $f:U \rightarrow \mathbb{R}$ is a smooth function. $(f, U)$ is equivalent to $(g, V)$ if there is an open set $W \ subset U \cap V$ containing $p$ such that $f = g$ when restricted to $W$. This iss an equivalence relation and the equivalence class of $(f, U)$ is called the **germ** of $f$ at $p$. $C_p^\infty$ or $C_p^\infty(\mathbb{R}^n)$ refers to the set of all germs of smooth functions at $p$.
+
+$$f(x) = \frac{1}{1 - x}$$
+
+with domain $\mathbb{R} - 1$ and $$g(x) = 1 + x + x^2 + \ldots$$ on the interval $(-1, 1)$, have the same germ for any point in $(-1, 1)$.
+
+An algebra over a field $K$ is a vector space $A$ over $K$ with map $\mu: A \times A \rightarrow A$ that satisfies associativity, distributivity, and homogeneity ($r(a \cdot b) = (r a) \cdot b  = a \cdot (rb)$). That is $A$ is a ring $A$ that is also a vector space over $K$.
+
+A map $L: V \rightarrow W$ between vector spaces over a field $K$ is a linear map if for any $r \in K$ and $u, v \in V$, $L(u + v) = L(u) + L(v)$ and $L(ru) = rL(u)$.
+
+## Derivations at a Point
+
+The map $D_v: C_p^\infty \rightarrow \mathbb{R}$ gives a $\mathbb{R}$-linear map that satisfies the Leibniz rule
+
+$$D_v(fg) = (D_vf)g(p) + f(p)D_vg$$
+
+as partial derivatives have this property. Any linear map $D: C_p^\infty \rightarrow \mathbb{R}$ satisfying the Leibniz rule is called a **derivation at $p$**. Denote the set of all derivations at $p$ as $D_p(\mathbb{R}^n)$. This set is a real vector space.
+
+Directional derivatives at $p$ are all derivations so there is a map $\phi: T_p(\mathbb{R}^n) \rightarrow D_p(\mathbb{R}^n)$ that maps $v \mapsto D_v = \sum v_i \frac{\partial}{\partial x^i} |_p$.
+
+**Lemma** If $D$ is a point derivation of $C_p^\infty$ then $D_(c) = 0$ for any constant function $c$.
+Proof: By Leibniz, $D(1) = D(1 \cdot 1) = D(1) \cdot 1 + 1 \cdot D(1) = 2D(1)$ and $D(1) = 0$.
+
+**Theorem** The linear map $\phi: T_p(\mathbb{R}^n) \rightarrow D_p(\mathbb{R}^n)$ is an isomorphism of vector spaces.
+
+Proof: To show injectivity, let $D_v = 0$ for some $v \in T_p(\mathbb{R}^n)$. Applying $D_v$ to the coordinate function $x^j$ shows that $0 = D_v(x^j) = \sum_i v_i \frac{\partial}{\partial x^i} |_p = v_j$. Thus, $v = 0$.
+
+To show surjectivity, let $D$ be a derivation and let $(f, V)$ be a representative germ of $D$. We can assume $V$ is a ball and hence star shaped. By Taylor's theorem with remainder, there are smooth functions $g_i(x)$ such that
+
+$$f(x) = f(p) + \sum (x^i - p^i)g_i(x), g_i(p) = \frac{\partial}{\partial x^i}(p)$$
+
+Applying $D$ to both sides we have $Df(x) = \sum (Dx^i)g_i(p) + \sum (p^i - p^i)Dg_i(x) = \sum(Dx^i)\frac{\partial}{\partial x^i}(p)$. Therefore, $D = D_v$ for $v = (Dx^1, \ldots, Dx^n)$.
+
+## Vector Fields
+A vector field $X$ on an open subset $U$ of $\mathbb{R}^n$ is a function that assigns to each point $p$ a tangent vector $X_p$ in $T_p(\mathbb{R}^n)$. Since $T_p(\mathbb{R}^n)$ has basis $\{\partial / \partial x^i |_p\}$, the vector $X_p$ is a linear combination
+
+$$X_p = \sum a^i(p)\frac{\partial}{\partial x^i} \bigg|_p, p \in U, a^i(p) \in \mathbb{R}$$
+
+## Vector Fields as Derivations
+For a smooth vector field $X$ on an open subset $U$ of $\mathbb{R}^n$ and $f$ is a smooth function then we can view $X$ as an operator that maps smooth functions on $U$ to smooth functions on $U$ where $(Xf)(p) = X_pf$.
