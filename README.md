@@ -13,3 +13,7 @@ By recursive relation, A_F(x) = x/(1 - x - x^2). If we let n = A_F(x), we can se
 # 138
 Trivial with Pell's equation. Important to note that multiplying the fundamental solution by a unit in Z[sqrt(5)] will generate infinite solutions.
 
+# 144
+A bounce emanates from a point $p = (x, y)$ on the ellipse with direction vector $u$. We may calculate the next point $(e, f)$ by parametrizing the ellipse equation $4(x + u_x)^2 + (y + u_y)^2 = 100$. We may calculate the next vector $v$ by reflecting $-u$ across the orthogonal vector to the tangent vector at $p$.
+
+In general, reflection of a vector $u$ across $v$ is to take the projection of $u$ onto $v$ and adding the inverse of the rejection of $u$ from $v$.

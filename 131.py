@@ -1,4 +1,4 @@
-from algos import is_cube, sieve
+from PE.algorithms import is_cube, sieve
 
 
 primes = sieve(1_000_000)

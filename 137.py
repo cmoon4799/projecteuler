@@ -1,4 +1,4 @@
-from algos import is_square, fibonacci
+from PE.algorithms import is_square, fibonacci
 
 
 for k in range(0, 32, 2):

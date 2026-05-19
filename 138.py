@@ -1,4 +1,4 @@
-from algos import is_square
+from PE.algorithms import is_square
 import math
 
 # find values of n such that 5n**2 + 4n + 1 is a square

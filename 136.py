@@ -1,4 +1,4 @@
-from algos import sieve
+from PE.algorithms import sieve
 import math
 
 N = 50_000_000

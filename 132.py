@@ -1,4 +1,4 @@
-from algos import sieve
+from PE.algorithms import sieve
 from sympy.ntheory.residue_ntheory import n_order
 
 
