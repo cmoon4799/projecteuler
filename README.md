@@ -13,10 +13,3 @@ By recursive relation, A_F(x) = x/(1 - x - x^2). If we let n = A_F(x), we can se
 # 138
 Trivial with Pell's equation. Important to note that multiplying the fundamental solution by a unit in Z[sqrt(5)] will generate infinite solutions.
 
----
-
-# Harmonic Series
-$\sum_{i = 1}^N \frac{1}{i} = H_N$ grows at the rate of $\log(N)$
-
-Given $N$ numbers, we can determine the largest $gcd$ of any two pair of numbers in $M\log(M)$, where $M$ is the maximum over the numbers. For each $d = 1, \ldots, M$, we can sieve for numbers divisible by $d$ in $O(\lfloor\frac{M}{d}\rfloor)$ by counting the frequency of $d * k$ for $k = 1, \ldots, \lfloor\frac{M}{d}\rfloor$.
-
