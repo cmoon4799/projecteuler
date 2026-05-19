@@ -1,13 +1,13 @@
-# Eucliean Spaces
+# Euclidean Spaces
 
 ## Problems
 **1.2** Let
-$
+$$
 f(x)= \begin{cases}
     e^{-1/x}, & x > 0 \\
     0, & x \leq 0
 \end{cases}
-$
+$$
 
 a. Show by induction that for $x > 0$ and $k \geq 0$, the $k$ th derivative $f^{(k)}(x)$ is of the form $p_{2k}(1/x)e^{-1/x}$ for some polynomial $p_{2k}(y)$ of degree $2k$ in $y$.
 
@@ -160,3 +160,46 @@ $$X_p = \sum a^i(p)\frac{\partial}{\partial x^i} \bigg|_p, p \in U, a^i(p) \in \
 
 ## Vector Fields as Derivations
 For a smooth vector field $X$ on an open subset $U$ of $\mathbb{R}^n$ and $f$ is a smooth function then we can view $X$ as an operator that maps smooth functions on $U$ to smooth functions on $U$ where $(Xf)(p) = X_pf$.
+
+In fact, $X_pf$ is the directional derivative of $f$ at the point $p$ in the direction of $X_p$.
+
+## Problems
+
+**2.1 (Vector fields)** Let $X$ be the vector field $x \partial / \partial x + y \partial / \partial y$ and $f(x, y, z)$ the function $x^2 + y^2 + z^2$ on $\mathbb{R}^3$. Compute $Xf$.
+
+$Xf = x(\partial f / \partial x) + y(\partial f / \partial y) = x(2x) + y(2y) = 2x^2 + 2y^2$.
+
+**2.2 (Algebra structure on $C_p^\infty$)** Define carefully addition, multiplication, and scalar multiplication in $C_p^\infty$. Prove that addition in $C_p^\infty$ is commutative.
+
+Let $(f, U), (g, V)$ be germs of smooth functions in neighborhoods $U, V$ around $p$. We define addition, multiplication, and scalar multiplication as $[(f, U)] + [(g, V)] = [(f + g, U \cap V)]$, $[(f, U)] \cdot [(g, V)] = [(f \cdot g, U \cap V)]$, $c[(f, U)] = [(cf, U)]$. The functions $f + g$, $f \cdot g$, and $cf$ are defined by pointwise addition and multiplication.
+
+Addition is commutative by virtue of addition being commutative in $\mathbb{R}$.
+
+**2.3. (Vector space structure on derivations at a point)** Let $D$ and $D'$ be derivations at $p$ in $\mathbb{R}^n$ and $c \in \mathbb{R}$. Prove that
+
+a. the sum $D + D'$ is a derivation at $p$
+
+b. the scalar multiple $cD$ is a derivation at $p$
+
+a. Linearity of $D + D'$ is trivial. Consider $(D + D')(fg) = D(fg) + D'(fg)$. Note that $D(fg) = D(f)g(p) + f(p)D(g)$ and $D'(fg) = D'(f)g(p) + f(p)D'(g)$. That is, $(D + D')(fg) = (D(f) + D'(f))g(p) + f(p)(D(g) + D'(g)) = ((D + D')(f))g(p) + f(p)((D + D')(g))$. That is, $D + D'$ satisfies the Leibniz rule and is hence a derivation at $p$.
+
+b. Linearity of $cD(f) = c \cdot D(f)$ is trivial. $cD(fg) = c(D(fg)) = c(D(f)g(p) + f(p)D(g)) = cD(f)g(p) + f(p)cD(g)$. That is, $cD$ satisfies the Leibniz rule and is hence a derivation at $p$.
+
+**2.4. (Product of derivations)** Let $A$ be an algebra over a field $K$. If $D_1$ and $D_2$ are derivations of $A$, show that $D_1 \circ D_2$ is not
+necessarily a derivation (it is if $D_1$ or $D_2 = 0$), but $D_1 \circ D_2 − D_2 \circ D_1$ is always a derivation of $A$.
+
+We have $D_1D_2(ab) = D_1(D_2(a)b + aD_2(b)) = D_1D_2(a)b + aD_1D_2(b) + D_1(a)D_2(b) + D_2(a)D_1(b)$. For $D_1D_2$ to be a derivation, it must be that $D_1D_2(ab) = D_1D_2(a)b + aD_1D_2(b)$, that is, $D_1(a)D_2(b) + D_2(a)D_1(b) = 0$ which is not necessarily the case. For a quick counterexample, let $a = b = f(x, y) = xy$, $p = (1, 1)$ and $D_1 = D_{(1, 0)}, D_2 = D_{(0, 1)}$; then $D_1(a) = 1, D_1(b) = 1, D_2(a) = 1, D_2(b) = 1$, hence, $D_1(a)D_2(b) + D_2(a)D_1(b) \neq 0$. However, if $D_1$ or $D_2 = 0$ then $D_1(a)D_2(b) + D_2(a)D_1(b) = 0$ and thus, $D_1D_2(ab) = D_1D_2(a)b + aD_1D_2(b)$.
+
+Note that $(D_1D_2 - D_2D_1)(ab) = D_1D_2(a)b + aD_1D_2(b) - D_2D_1(a)b - aD_2D_1(b) + D_1(a)D_2(b) + D_2(a)D_1(b) - D_2(a)D_1(b) - D_1(a)D_2(b) = (D_1D_2(a) - D_2D_1(a))b + a(D_1D_2(b) - D_2D_1(b))$ which shows that $D_1D_2 - D_2D_1$ is a derivation.
+
+# The Exterior Algebra of Multicovectors
+
+Manifolds are higher dimensional analogues of curves and surfaces. Just as affine spaces free us from the prison of the vector space origin, manifolds free us from the prison of a global coordinate system.
+
+Fundamental to manifolds is the linearization principle, which states every manifold can be locally approximated by its tangent space. In this way, linear algebra enters manifolds.
+
+## Dual Spaces
+
+If $V$ and $W$ are real vector spaces, $Hom(V, W)$ is the vector space of all linear maps $f: V \rightarrow W$. Define the dual space of $V$, $V^\vee$, as $Hom(V, \mathbb{R})$. The elements of $V^\vee$ are known as covectors on $V$.
+
+Let $\alpha^i(v) = v^i$. Then $\alpha^i, i = 1, \ldots, n$ is a basis for $V^\vee$. This basis is said to be the **dual** to the basis $e_1, \ldots, e_n$ of $V$. 
