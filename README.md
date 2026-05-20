@@ -17,3 +17,13 @@ Trivial with Pell's equation. Important to note that multiplying the fundamental
 A bounce emanates from a point $p = (x, y)$ on the ellipse with direction vector $u$. We may calculate the next point $(e, f)$ by parametrizing the ellipse equation $4(x + u_x)^2 + (y + u_y)^2 = 100$. We may calculate the next vector $v$ by reflecting $-u$ across the orthogonal vector to the tangent vector at $p$.
 
 In general, reflection of a vector $u$ across $v$ is to take the projection of $u$ onto $v$ and adding the inverse of the rejection of $u$ from $v$.
+
+# 145
+We can consider 8 digit numbers separately. For $d_1d_2 \ldots d_8$, its reverse is $d_8d_7 \ldots d_1$. If $d_1 + d_8 > 10$ then $d_2 + d_7 \equiv 0 \mod 2$ and $d_2 + d_7 < 10$. Then $d_3 + d_6 > 10$ to offset the parity of $d_2 + d_7$. This implies that $d_4 + d_5 \equiv 0 \mod 2$ and $d_4 + d_5 > 10$ but if $d_4 + d_5 > 10$ then this offsets the parity of the sum $d_4 + d_5$ of higher magnitude.
+
+It follows that $d_i + d_{9 - i} \equiv 1 \mod 2$ and $d_i + d_{9 - i} < 10$. Such numbers are much more easy to calculate.
+
+# 146
+Let $k = \{1, 3, 7, 9, 13, 27\}$. Note that these constitute modulos $\{1, 2, 3, 4\} \mod 5$. It follows that $n^2 \equiv 0 \mod 5$, therefore $5 \mid n$. All in all, $2 \mid n$, $5 \mid n$, $3 \nmid n$, $7 \nmid n$, $13 \nmid n$.
+
+Paired with deterministic Miller-Rabin, this is sufficient to solve the problem.
